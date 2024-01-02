@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body style="background-color: #212121; color: white">
+    <div class="parent">
+      <div class="day">Monday</div>
+      <div class="day">Tuesday</div>
+      <div class="day">Wednesday</div>
+      <div class="day">Thursday</div>
+    </div>
+  </body>
+  <script>
+    const parent = document.querySelector(".parent");
+    console.log(parent);
+    console.log(parent.children); //returns HTMLCollection which is Array like property
+    console.log(parent.children[1]); //returns Tuesday div
+    console.log(parent.children[1].innerHTML); //Tuesday
+    for (let i = 0; i < parent.children.length; i++) {
+      console.log(parent.children[i].innerHTML); //returns Monday - thursday
+    }
+    parent.children[1].style.backgroundColor = "orange";
+    parent.children[1].style.padding = "10px";
+
+    console.log(parent.firstElementChild); //returns div of Monday
+
+    console.log(parent.lastElementChild); //returns div of Thursday
+
+    const day1 = document.querySelector(".day");
+    console.log(day1); //returns Monday div
+
+    console.log(day1.parentElement); //gives all div from Mon-Thurs
+
+    console.log(day1.nextElementSibling); //returns next siblong of monday ie.tuesday
+
+    console.log("NODES: ", parent.childNodes); //returns NodeList(9) but we have 4 since DOM is a tree structure it considers line break as a nodelist too it calculates enter key too
+  </script>
+</html>

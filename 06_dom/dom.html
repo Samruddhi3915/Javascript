@@ -1,0 +1,46 @@
+<!-- DOM-documnet object model -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Learning</title>
+  </head>
+  <body>
+    <div class="bg-black">
+      <h1 style="color: blue" id="title" class="heading">
+        DOM Learning <span style="display: none">test text</span>
+      </h1>
+      <input type="password" name="" id="" />
+      <p>Lorem ipsum dolor sit amet.</p>
+      <ul>
+        <li class="list-item">1</li>
+        <li class="list-item">2</li>
+        <li class="list-item">3</li>
+      </ul>
+    </div>
+  </body>
+</html>
+
+<!-- //diagram(DOM)  -->
+<!-- window | document | HTML | | head body | 1.title | a.textNode
+2.Meta | b.Attribute body| div| Attribute |
+child->h1:textNode,attribute|p:textnode -->
+
+<!-- DOM MANipulation document.getElementByID('firstHeading').innerHTML="
+<h1>Chai aur code</h1> -->
+
+<!-- title.innerText "DOM Learning" 
+title.textContent(displays hidden text also) "DOM Learning test text"
+title.innerHTML(displays HTML written within too) '\n        DOM Learning <span style="display: none">test text</span>\n -->
+
+<!-- query selector 
+    document.getElementsByClassName("heading")
+HTMLCollection [h1#title.heading, title: h1#title.heading]
+document.querySelector("h1") //displays first h1 tag -->
+<!-- 
+document.querySelector("#title")
+​
+document.querySelector(".heading")
+document.querySelector('input[type="password"]')
+ -->

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body style="background-color: black; color: white"></body>
+  <script>
+    //how to create a Nodelist programmatically
+    const div = document.createElement("div");
+    console.log(div); //<div></div>
+    //adding properties in div
+    div.className = "main";
+    div.id = Math.round(Math.random() * 10 + 1); //creating a random ID
+    console.log(div); //gives id and class to div
+    div.setAttribute("title", "generated Title");
+    div.style.backgroundColor = "green";
+    div.style.padding = "10px";
+    console.log(div);
+    // div.innerText = "Samruddhi Ahire";
+    const addText = document.createTextNode("Samruddhi Ahire");
+    div.append(addText);
+    //this is not displaying on page therefore we attach it to page
+    document.body.appendChild(div);
+  </script>
+</html>
