@@ -1,0 +1,43 @@
+async
+asynchronous code
+JS is by default sync and single threaded(everything is executed on single thread therefore it is slow in execution but we never can identify the slowness of execution therefore its good)
+execution context:
+execute one line of code at a time
+|console.log(1)
+|console.log(2)
+here | means thread ie.single thread
+//each operation waits for the last one to complete before execution
+
+
+blocking code vs non blocking code
+blocking-
+blocks the flow of program
+read file sync
+
+non blocking-
+does not block execution(randomly tasks can be executed)
+read file async
+
+Is non blocking best than  blocking?
+case 1:store user data in db and then notify user if registeration is success
+soln:success msg will be printed first before all the bg process in non blocking because the bg process may produce error therefore in this case non blocking is not efficient
+
+
+
+JS engine-made up of memory heap (does memory allocation) and call stack(FIFO)(consists of function and global context),this js engine alone executes all the code
+web API- it is inside browser
+task queue-makes js fast and efficient
+high priority queue/promise queue-contains promises in js
+task queue(LIFO)-its job is to add all callbacks from web api to call stack in js engine
+
+
+Question-
+console.log(1)
+setTimeOut(0) 
+console.log(2)
+console.log(3)
+will 2  execute immediately or will execute after wards?
+sol: but setTimeout will make a call then callback to stack till that time 3 will be executed before printing two
+
+fetch() API:
+it is a task queue with a high priority that includes promises.it consists of same callbacks and execution

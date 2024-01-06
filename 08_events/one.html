@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Events</title>
+  </head>
+  <body style="background-color: #414141; color: aliceblue">
+    <h2>Amazing image</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    //all events in JS run sequentially but we can ignore it using async
+    //events invoke on any activity like mouse press,drag,drop,etc
+
+    //this gives less features
+    // document.getElementById("owl").onclick = function () {
+    //   alert("owl clicked");
+    // };
+    //attachEvent-was used in early time
+    //jQuery-on(it is also event listener)
+    //new approach uses addEventListener
+    // document.getElementById("owl").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log(e); //returns PointerEvent object
+    //   },
+    //   false
+    // ); //false is third parameter which is default false but gives same output when written true or false
+    //type,timestamp,defaultPrevented-used in forms or in anchor tag
+    //target,toElement,srcElement,currentTarget
+    //srcElement
+    //clientX,clientY,screenX,screenY
+    //altkey,ctrlkey,shiftkey-can be recognized whether key is pressed or not using events
+
+    //Event Propogation-related to true and false values(it has two context event bubbling and event capturing depends on scenarios)
+
+    // document.getElementById("images").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("Clikced inside the ul");
+    //   },
+    //   false
+    // );
+    // document.getElementById("owl").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("owl clicked");
+    //  e.stopPropagation();
+    //sometimes we dont want bubbling ie.want to be different inside and outside event by using stop propogation
+    //   },
+    //   false
+    // ); //this will activate both events clikced inside ul and owl clikced it prints owl clikced first and then prints further as clicked inside the ul this is event propgartuon which is done by event bubbling which goes from bottom to top ie.prints owl first then ul
+
+    //next is capturing mode ie.make values as true instead of false and see the results
+    // document.getElementById("images").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("Clikced inside the ul");
+    //   },
+    //   true
+    // );
+    // document.getElementById("owl").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("owl clicked");
+    //   },
+    //   true
+    // ); //this will go from top to bottom ie.capturing mode prints clicked inside ul first and then prints owl clicked
+
+    //preventDefault
+    // document.getElementById("google").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     e.preventDefault(); //will not allow to open google.com and will print google clicke  d simply
+    //     e.stopPropagation(); //will not bubble event
+    //     console.log("google clicked");
+    //   },
+    //   false
+    // ); //false indicates bubbling
+
+    //task 1- click on li ie.images and after clicking on image the image should disappear
+    //solution:
+    //first select all ids of image
+    document.querySelector("#images").addEventListener(
+      "click",
+      function (e) {
+        console.log(e); //returns pointerEvent
+        console.log(e.target); //returns img element eg. <img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;lazy=load" alt="">
+        console.log(e.target.parentNode); //returns li of that specific selected image
+        // let removeIt = e.target.parentNode;
+        //remove parent node ie will remove the li from ul of selected image ie.image will disappear
+        // removeIt.remove();
+        //second approach to remove
+        // removeIt.parentNode.removeChild(removeIt); //this will remove child node of parent node of removeIt
+
+        // but if i click on li near google it disappers whole content of the page so we check constraints
+        console.log(e.target.parentNode.tagName); //prints tagnames like Li , IMG,div,etc
+        // so now we check
+        if (e.target.tagName === "IMG") {
+          console.log(e.target.id);
+          let removeIt = e.target.parentNode;
+          removeIt.remove();
+        }
+      },
+
+      false
+    );
+  </script>
+</html>
