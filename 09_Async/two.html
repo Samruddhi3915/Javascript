@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async</title>
+  </head>
+  <body>
+    <h1>Javascript tut 2</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    //setInterval method //syntax:
+    // setInterval(handler: TimerHandler, timeout?: number, ...arguments: any[]): number
+    // setInterval(function () {
+    //   console.log("Samruddhi Ahire", Date.now());
+    // }, 1000); //will print console.log after every 1 sec
+    // const sayDate = function (str) {
+    //   console.log(str, Date.now());
+    // };
+    // const intervalid = setInterval(sayDate, 1000, "Hi"); //takes paramaters too
+    //to stop setInterval we have clearInterval
+    // clearInterval(intervalid);
+
+    //ques:the name and date should be printed when clicked on start button and stop when clicked on stop button
+    //solution:
+    let intervalId;
+    const sayDate = function (str) {
+      console.log(str, Date.now());
+    };
+    document.getElementById("start").addEventListener("click", function () {
+      intervalId = setInterval(() => sayDate("Samruddhi"), 1000);
+    });
+    document.getElementById("stop").addEventListener("click", function () {
+      clearInterval(intervalId);
+    });
+  </script>
+</html>

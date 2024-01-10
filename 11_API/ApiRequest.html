@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #212121"></body>
+  <script>
+    //traditional way to access request is XMLHttpRequest
+    const requestURL = "https://api.github.com/users/Samruddhi3915";
+    const xhr = new XMLHttpRequest();
+    //syntax:open(method: string, url: string | URL)
+    xhr.open("GET", requestURL);
+    //to continue track readyState
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+
+      if (xhr.readyState === 4) {
+        // const data = this.responseText;
+        // console.log(this.responseText); //current context therefore used this
+        // console.log(data);
+        // console.log(typeof data);
+        // console.log(data.followers);//will come undefined since type is string and we are giving object therefore we convert to srtring
+        const data = JSON.parse(this.responseText);
+        console.log(typeof data);
+        console.log(data);
+        console.log(data.followers);
+      }
+    };
+    console.log(xhr.readyState);
+    //open needs to be called by
+    xhr.send();
+  </script>
+</html>

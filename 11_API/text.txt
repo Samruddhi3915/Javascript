@@ -1,0 +1,17 @@
+API-talking language between two systems.
+these two systems can be backend and frontend or maybe two individual systems
+//famous api-github
+//Json Formatter - a tool to format/beautify Json
+
+
+
+
+//new topic
+//is console and document part of JS?
+no it is not a part of core JS
+console is browsers debug tool JS
+
+//v8 engine
+JS runs using Cpp
+v8 tools give bedubbing tools console.log is also given by v8
+console log is in d8 folder
