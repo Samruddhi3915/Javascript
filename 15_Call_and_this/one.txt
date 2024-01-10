@@ -1,0 +1,7 @@
+in call stack we have global execution context,and we have functions in it 
+
+//function call within call which will create execution context for both function and callme,now how to call this for this method-->this keyword will always refer to global execution context(problem of global execution context if window then it refers to window, if node envt it refers to empty object {} )
+function()
+{
+    callMe()
+}
