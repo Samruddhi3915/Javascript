@@ -1,0 +1,18 @@
+const newHero=["hulk","spiderman"]
+newHero
+
+//JS default behavior is prototypal behavior
+(goes layer by layer up till it gets none)
+//prototypal inheritance-if prototype under prototype
+
+
+function->Object(Eg in Object.js file)
+
+
+Array(newHero)->Object->null
+(Object parent->no one therefore referenced as null)
+
+
+String->Object->null
+
+therefore we can say everything in JS is Object
